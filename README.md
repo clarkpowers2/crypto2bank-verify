@@ -174,16 +174,4 @@ it’s the **infrastructure layer for the future of autonomous finance.**
   <sub>© 2025 Crypto2Bank Technologies • All rights reserved</sub>
 </p>
 
-🧠 How to use it
 
-In your repo root, create (or replace) README.md.
-
-Paste the Markdown above.
-
-Commit → git add README.md && git commit -m "Add investor-ready README" && git push.
-
-Open your GitHub repository — the README will render beautifully with headings, tables, and diagram formatting.
-
-Would you like me to add a GitHub banner image section (a wide visual header for your repo front page) so the README looks like a startup landing page?
-
-New version of GPT available - Continue chatting to use the old version, or start a new chat for the latest version.[ automation README.md](https://github.com/user-attachments/files/24148113/automation.README.md)
