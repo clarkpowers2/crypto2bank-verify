@@ -1,8 +1,5 @@
-t’s written to impress investors, contributors, and partners alike.
-Just copy it into your repository root (/README.md), commit, and it’ll render beautifully on GitHub.
-
 <p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Bitcoin_logo.svg" width="80" alt="Crypto2Bank Logo"/>
+  <img src="assets/crypto2bank-verify-logo.svg" width="520" alt="Crypto2Bank Verify Logo">
 </p>
 
 # 💸 **Crypto2Bank™**  
