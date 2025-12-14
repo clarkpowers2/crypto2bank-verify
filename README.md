@@ -14,7 +14,7 @@ Just copy it into your repository root (/README.md), commit, and it’ll render 
 
 ## 🔍 Executive Overview
 
-**Crypto2Bank** is a next-generation financial automation platform that connects cryptocurrency ecosystems and traditional banking rails through a unified, compliant API.  
+**Crypto2BankVerify** is a next-generation financial automation platform that connects cryptocurrency ecosystems and traditional banking rails through a unified, compliant API.  
 It performs **crypto deposits, automated conversions, and fiat payouts**—all maintained by an intelligent, self-repairing automation layer known as **Guardian**.
 
 Built for institutional reliability, Crypto2Bank ensures 24/7 uptime through predictive diagnostics, auto-repair scripts, and continuous GitHub-based automation.
