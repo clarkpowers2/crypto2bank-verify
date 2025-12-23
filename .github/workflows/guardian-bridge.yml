@@ -20,6 +20,15 @@ jobs:
           cache: npm
           cache-dependency-path: guardian-bridge/package-lock.json
 
+      - name: Preflight secrets
+        env:
+          GUARDIAN_BRIDGE_SECRET: ${{ secrets.GUARDIAN_BRIDGE_SECRET }}
+        run: |
+          if [ -z "$GUARDIAN_BRIDGE_SECRET" ]; then
+            echo "Missing GUARDIAN_BRIDGE_SECRET"
+            exit 1
+          fi
+
       - run: npm ci
       - run: npm run start
         env:
