@@ -1,4 +1,4 @@
-name: Guardian Autonomous Cycle
+name: Guardian CI Smoke Test
 
 on:
   workflow_dispatch:
@@ -7,8 +7,9 @@ permissions:
   contents: read
 
 jobs:
-  guardian-cycle:
+  smoke:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: echo "Guardian cycle alive"
+
