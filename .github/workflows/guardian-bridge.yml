@@ -1,33 +1,26 @@
-name: Guardian Autonomous Cycle
+name: Guardian Bridge
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "*/5 * * * *"
+  # schedule:
+  #   - cron: "*/5 * * * *"   # re-enable later
 
 jobs:
   guardian:
     runs-on: ubuntu-latest
-
     defaults:
       run:
         working-directory: guardian-bridge
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
           cache-dependency-path: guardian-bridge/package-lock.json
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run guardian
-        run: npm run start
+      - run: npm ci
+      - run: npm run start
         env:
           GUARDIAN_BRIDGE_SECRET: ${{ secrets.GUARDIAN_BRIDGE_SECRET }}
