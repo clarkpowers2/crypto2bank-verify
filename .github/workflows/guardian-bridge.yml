@@ -1,0 +1,35 @@
+name: Guardian Bridge
+
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: "*/5 * * * *"   # re-enable later
+
+jobs:
+  guardian:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: guardian-bridge
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: guardian-bridge/package-lock.json
+
+      - name: Preflight secrets
+        env:
+          GUARDIAN_BRIDGE_SECRET: ${{ secrets.GUARDIAN_BRIDGE_SECRET }}
+        run: |
+          if [ -z "$GUARDIAN_BRIDGE_SECRET" ]; then
+            echo "Missing GUARDIAN_BRIDGE_SECRET"
+            exit 1
+          fi
+
+      - run: npm ci
+      - run: npm run start
+        env:
+          GUARDIAN_BRIDGE_SECRET: ${{ secrets.GUARDIAN_BRIDGE_SECRET }}
