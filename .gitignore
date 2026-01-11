@@ -1,2 +1,3 @@
-guardian-core/
-guardian-core/
+# Re-include guardian core explicitly
+!guardian-core/
+!guardian-core/**
