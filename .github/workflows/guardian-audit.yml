@@ -1,0 +1,44 @@
+name: Guardian Full System Audit
+
+on:
+  schedule:
+    # Runs every 6 hours (adjust as needed)
+    - cron: "0 */6 * * *"
+
+  workflow_dispatch: # allows manual runs
+
+jobs:
+  guardian-audit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: |
+          npm ci
+
+      - name: Run Guardian Full Audit (READ-ONLY)
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          node guardian/guardian.js audit \
+            --target=all \
+            --mode=full \
+            --health-check \
+            --verify-integrations \
+            --db-check \
+            --read-only \
+            --export=json
+
+      - name: Upload Audit Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: guardian-audit-report
+          path: guardian/reports/
