@@ -20,15 +20,18 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install dependencies
-        run: |
-          npm ci
+- name: Install dependencies (core)
+  working-directory: packages/core
+  run: |
+    npm ci
 
       - name: Run Guardian Full Audit (READ-ONLY)
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
-          node guardian/guardian.js audit \
+working-directory: packages/core
+run: |
+  node guardian/guardian.js audit \
             --target=all \
             --mode=full \
             --health-check \
